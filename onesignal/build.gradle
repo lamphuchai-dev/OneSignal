@@ -1,7 +1,10 @@
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
-//version = '4.0.0'
-group = 'com.github.lamphuchai-dev'
+//apply plugin: 'com.android.library'
+//apply plugin: 'maven-publish'
+
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
     compileSdkVersion 28
@@ -70,7 +73,7 @@ dependencies {
     //   otherwise app can get dup classes between 26 & 28 when mixing these versions.
     // Also note, firebase & gms libraries use android.support:26.
     //   - They never refer to 27 or 28
-    api 'com.android.support:cardview-v7:[26.0.0, 27.99.99]'
+    implementation 'com.android.support:cardview-v7:[26.0.0, 27.99.99]'
     api 'com.android.support:support-fragment:[26.0.0, 27.99.99]'
     api 'com.android.support:customtabs:[26.0.0, 27.99.99]'
 
@@ -81,15 +84,18 @@ dependencies {
 //apply from: 'maven-push.gradle'
 
 
-afterEvaluate{
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.lamphuchai-dev'
-            artifactId = 'OneSignal'
-            version = '4.0.0'
-            afterEvaluate {
-                from components.release
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.lamphuchai-dev'
+                artifactId = 'OneSignal'
+                version = '5.0.0'
+                afterEvaluate {
+                    from components.release
+                }
             }
         }
     }
+
 }
