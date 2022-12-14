@@ -1,5 +1,10 @@
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+
+    id 'maven-publish'
+}
 
 android {
     compileSdkVersion 28
@@ -22,9 +27,16 @@ android {
         }
         release {
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         unity {
             minifyEnabled false
+        }
+    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
         }
     }
 }
@@ -79,8 +91,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.lamphuchai-dev'
             artifactId = 'OneSignal'
-            version = '0.0.0'
-
+            version = '1.0.0'
             afterEvaluate {
                 from components.release
             }
@@ -88,4 +99,3 @@ publishing {
     }
 }
 
-//apply from: 'maven-push.gradle'
