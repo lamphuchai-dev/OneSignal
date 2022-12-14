@@ -12,7 +12,6 @@ buildscript {
 
         // huawei maven
         maven { url 'http://developer.huawei.com/repo/' }
-        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'

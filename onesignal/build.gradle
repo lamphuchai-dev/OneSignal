@@ -1,11 +1,8 @@
-
+apply plugin: 'com.android.library'
 plugins {
     id 'com.android.library'
-    id 'kotlin-android'
-
     id 'maven-publish'
 }
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -27,16 +24,16 @@ android {
         }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         unity {
             minifyEnabled false
         }
-    }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+                withJavadocJar()
+            }
         }
     }
 }
@@ -91,11 +88,10 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.lamphuchai-dev'
             artifactId = 'OneSignal'
-            version = '1.0.0'
+            version = '1.0.1'
             afterEvaluate {
                 from components.release
             }
         }
     }
 }
-
