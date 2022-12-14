@@ -40,5 +40,6 @@ allprojects {
 
         // huawei maven
         maven { url 'http://developer.huawei.com/repo/' }
+        maven { url 'https://jitpack.io' }
     }
 }
