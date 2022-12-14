@@ -8,6 +8,9 @@ apply plugin: 'com.android.application'
 //apply plugin: com.onesignal.androidsdk.GradleProjectPlugin
 
 android {
+    lintOptions {
+        abortOnError false
+    }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {

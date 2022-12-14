@@ -49,6 +49,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import com.onesignal.OneSignalDbContract.NotificationTable;
@@ -815,7 +816,7 @@ class GenerateNotification {
             // This is required as setScaleType can not be called through RemoteViews as it is an enum.
             customView.setViewPadding(R.id.os_bgimage_notif_bgimage_align_layout, -5000, 0, 0, 0);
             customView.setImageViewBitmap(R.id.os_bgimage_notif_bgimage_right_aligned, bg_image);
-            customView.setViewVisibility(R.id.os_bgimage_notif_bgimage_right_aligned, 0); // visible
+            customView.setViewVisibility(R.id.os_bgimage_notif_bgimage_right_aligned,  View.VISIBLE); // visible
             customView.setViewVisibility(R.id.os_bgimage_notif_bgimage, 2); // gone
          }
          else
