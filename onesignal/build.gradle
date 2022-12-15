@@ -90,7 +90,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.lamphuchai-dev'
                 artifactId = 'OneSignal'
-                version = '7.0.0'
+                version = '8.0.0'
                 afterEvaluate {
                     from components.release
                 }
